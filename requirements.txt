@@ -11,3 +11,6 @@ pypdf
 docx2txt
 tiktoken
 tavily-python
+pyairtable
+fastapi
+uvicorn

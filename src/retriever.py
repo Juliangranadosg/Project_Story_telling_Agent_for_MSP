@@ -17,6 +17,9 @@ def retrieve_documents(topic: str, k: int = 5):
 
     docs = retriever.invoke(topic)
 
+    if len(docs) == 0:
+        raise ValueError("No relevant documents were retrieved from Pinecone.")
+
     return docs
 
 
@@ -32,3 +35,13 @@ def format_docs(docs):
         )
 
     return "\n\n".join(formatted_chunks)
+
+
+def print_retrieved_sources(docs):
+    print("\nSources retrieved:")
+
+    for i, doc in enumerate(docs, start=1):
+        print(f"\nSource {i}")
+        print("File:", doc.metadata.get("source", "Unknown source"))
+        print("Page:", doc.metadata.get("page", "N/A"))
+        print("Preview:", doc.page_content[:300])

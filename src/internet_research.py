@@ -133,3 +133,13 @@ def collect_online_research(topic: str, max_results: int = 5):
     summarized_sources = summarize_online_sources(topic, raw_sources)
 
     return summarized_sources
+
+
+def run_internet_research(topic: str, max_results: int = 5):
+    """
+    Wrapper function used by generator.py.
+
+    This keeps the existing code structure unchanged,
+    but gives generator.py the function name it expects.
+    """
+    return collect_online_research(topic, max_results=max_results)
