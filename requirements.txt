@@ -10,3 +10,4 @@ pinecone
 pypdf
 docx2txt
 tiktoken
+tavily-python

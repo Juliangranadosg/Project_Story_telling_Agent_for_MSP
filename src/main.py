@@ -38,7 +38,7 @@ def run_agent():
 
 if __name__ == "__main__":
     # Run this only when you want to upload/re-upload documents:
-    build_vector_database()
+    #build_vector_database()
 
     # Run the agent:
     run_agent()

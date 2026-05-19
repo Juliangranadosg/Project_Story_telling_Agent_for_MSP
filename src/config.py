@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
 PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 PINECONE_INDEX_NAME = os.getenv("PINECONE_INDEX_NAME", "msp-content-agent")
 PINECONE_CLOUD = os.getenv("PINECONE_CLOUD", "aws")
@@ -16,3 +17,18 @@ CHUNK_SIZE = 1200
 CHUNK_OVERLAP = 200
 
 DATA_FOLDER = "data"
+
+def check_environment_variables():
+    if not OPENAI_API_KEY:
+        raise ValueError("Missing OPENAI_API_KEY in .env file")
+
+    if not PINECONE_API_KEY:
+        raise ValueError("Missing PINECONE_API_KEY in .env file")
+
+    if not PINECONE_INDEX_NAME:
+        raise ValueError("Missing PINECONE_INDEX_NAME in .env file")
+
+    if not TAVILY_API_KEY:
+        raise ValueError("Missing TAVILY_API_KEY in .env file")
+
+    print("Environment variables loaded successfully.")
